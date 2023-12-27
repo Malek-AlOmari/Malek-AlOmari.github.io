@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediCare Health Systems</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>MediCare Health Systems</h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#reservation">Reservation</a></li>
+        <li><a href="#patient">Patient Information</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <main class="flex-container">
+      <div class="sidebar">
+        <section class="upcoming-appointments dark-section">
+          <h2>Upcoming Appointments</h2>
+          <p>No upcoming appointments.</p>
+        </section>
+        <section class="available-facilities dark-section">
+          <h2>Available Facilities</h2>
+          <p>Facility information will be displayed here.</p>
+        </section>
+      </div>
+
+      <div class="content">
+        <section class="recent-activity dark-section">
+          <h2>Recent Activity</h2>
+          <p>No recent activity.</p>
+        </section>
+
+        <div class="reservation-form dark-section" id="reservation">
+          <header>
+            <h2>Make a Reservation</h2>
+          </header>
+          <main>
+            <form id="reservationForm" action="#" method="post">
+              <label for="patientName">Your Name:</label>
+              <input type="text" id="patientName" name="patientName" required>
+
+              <label for="appointmentDate">Preferred Date:</label>
+              <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+              <label for="doctorSelection">Select a Doctor:</label>
+              <select id="doctorSelection" name="doctorSelection" required>
+                <option value="doc1">Dr. malek - eyes doctor</option>
+                <option value="doc2">Dr. Hassan - heart doctor </option>
+                <option value="doc3">Dr. Mohammed - ear doctor </option>
+              </select>
+
+              <button type="submit">Confirm Reservation</button>
+            </form>
+
+            <div id="displayInfo" class="patient-info" style="display: none;">
+              <h2>Patient Information</h2>
+              <p><strong>Patient Name:</strong> <span id="displayPatientName"></span></p>
+              <p><strong>Appointment Date:</strong> <span id="displayAppointmentDate"></span></p>
+              <p><strong>Selected Doctor:</strong> <span id="displaySelectedDoctor"></span></p>
+            </div>
+          </main>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    window.onload = function () {
+      alert("Welcome to Malek project\nThis Project made with love:) \ncontact me at\nmalekalomari2002@gmail.com");
+    };
+
+    document.getElementById("reservationForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var patientName = document.getElementById("patientName").value;
+      var appointmentDate = document.getElementById("appointmentDate").value;
+      var selectedDoctor = document.getElementById("doctorSelection").options[document.getElementById("doctorSelection").selectedIndex].text;
+
+      document.getElementById("displayPatientName").innerText = patientName;
+      document.getElementById("displayAppointmentDate").innerText = appointmentDate;
+      document.getElementById("displaySelectedDoctor").innerText = selectedDoctor;
+
+      document.getElementById("displayInfo").style.display = "block";
+    });
+  </script>
+</body>
+</html>
